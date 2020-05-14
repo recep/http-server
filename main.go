@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strconv"
 )
 
 func main() {
@@ -18,5 +19,7 @@ func main() {
 func handler(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Fprintln(w, r.Method)
-	fmt.Fprintf(w, http.StatusText(http.StatusOK))
+
+	code := strconv.Itoa(http.StatusOK)
+	fmt.Fprintf(w, code)
 }
